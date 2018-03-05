@@ -1,0 +1,57 @@
+e:
+  conf:
+    logAspect: false
+    defaultLocale: zh_CN
+    supportLocales:
+    - en_US
+    - zh_CN
+
+    homePageConfig:
+      staticResourceFolder: asssets
+
+    ignoreJsonResponseUrls:
+    - /configuration/ui
+    - /swagger-resources
+    - /v2/api-docs
+    - /configuration/security
+    - /model/*/json
+    - /model/*/save
+    - /editor/stencilset
+    - /health
+    - /info
+    - /error
+    - /dump
+    - /metrics
+    - /env
+    - /refresh
+    - /trace
+    - /flyway
+    - /logfile
+    - /liquibase
+server:
+  port: 7071
+  tomcat:
+    uri-encoding: UTF-8
+
+spring:
+  profiles:
+    active: dev
+  application:
+    name: user
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    preferIpAddress: true
+  healthcheck:
+    enabled: true
+feign: 
+  hystrix: 
+    enabled: false
+ribbon:
+  ReadTimeout: 600000
