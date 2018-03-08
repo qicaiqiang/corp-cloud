@@ -1,0 +1,74 @@
+spring:
+   profiles:
+     active: dev
+   application:
+     name: gateway
+   http:
+     multipart:
+       max-file-size: 100Mb
+       max-request-size: 100Mb
+     pool:
+       max-idle: 20
+       min-idle: 0
+       max-active: 20
+       max-wait: -1
+server:
+  port: 8081
+zuul:
+  routes: 
+    user:
+      sensitive-headers: true
+      stripPrefix: true
+      path: /user/**
+      service-id: user
+#      url: http://localhost:7071/
+  host:
+     socket-timeout-millis: 3600000
+     connect-timeout-millis: 3600000
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/ # 指定注册中心的地址
+  instance:
+    preferIpAddress: true
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+    leaseRenewalInSeconds: 1
+    leaseExpirationDurationInseconds: 3
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 600000
+ribbon:
+  ReadTimeout: 3600000
+  ConnectTimeout: 3600000
+
+e:
+  conf:
+    logAspect: false
+    defaultLocale: zh_CN
+    supportLocales:
+    - en_US
+    - zh_CN
+
+    ignoreJsonResponseUrls:
+    - /configuration/ui
+    - /swagger-resources
+    - /v2/api-docs
+    - /configuration/security
+    - /model/*/json
+    - /model/*/save
+    - /editor/stencilset
+    - /health
+    - /info
+    - /error
+    - /dump
+    - /metrics
+    - /env
+    - /refresh
+    - /trace
+    - /flyway
+    - /logfile
+    - /liquibase
