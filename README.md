@@ -10,6 +10,7 @@
 > * 以SpringCloud和SpringBoot为基础，目标为打造一套企业级的微服务框架的开发Demo和开发规范</br>
 > * 根据框架的构建情况会陆续更新博客，写出自己在搭建框架时遇到的各种坑。博客地址：`http://www.cnblogs.com/Caucasian/`，欢迎持续关注</br>
 > * 欢迎大家一起完善项目,提出缺陷，提供架构思路，编码规范和更好的架构项目规范，让此项目完成最终目标</br>
+> * 项目基础运行环境为JDK1.8,Maven，直接点击corp-cloud路径中*.Application类既可运行(SpringBoot内置Tomcat)</br>
 > * 如果此项目有帮助，请点击star支持一下</br>
 
 
@@ -29,7 +30,6 @@
 >       1.corp-cloud-discovery：注册中心，架构核心，所有服务都需要注册在discovery中，进行统一调度和管理</br>
 >       2.corp-cloud-gateway：网关，从外部来的请求都需要经过该服务进行统一分发，并可实现客户端负载（该包逻辑后续补充）</br>
 >       3.corp-cloud-user：corp-boot-user的服务，用于启动user服务，让corp-boot中只关心业务逻辑代码</br>
-
 
 ## 项目开发规范（持续完善）
 > *   1.基础开发规范这边不做详情介绍，例如驼峰命名，类名首字母大写等等，可参考阿里开发规范手册</br>
